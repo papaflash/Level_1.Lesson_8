@@ -27,7 +27,17 @@ namespace Task_2_TextBoxVsNumericValue
             try
             {
                 ErrorLbl.Text = "";
-                numericUpDown1.Value = Convert.ToInt32(textBox1.Text);
+                if(Int32.TryParse(textBox1.Text, out int num))
+                {
+                    if (num >= numericUpDown1.Minimum && num <= numericUpDown1.Maximum)
+                    {
+                        numericUpDown1.Value = Convert.ToInt32(textBox1.Text);
+                    }
+                }else
+                {
+                    throw new FormatException();
+                }
+               
             }catch(FormatException err)
             {
                 ErrorLbl.Text = err.Message;

@@ -53,7 +53,7 @@
             // ErrorLbl
             // 
             this.ErrorLbl.AutoSize = true;
-            this.ErrorLbl.Location = new System.Drawing.Point(64, 28);
+            this.ErrorLbl.Location = new System.Drawing.Point(12, 28);
             this.ErrorLbl.Name = "ErrorLbl";
             this.ErrorLbl.Size = new System.Drawing.Size(0, 13);
             this.ErrorLbl.TabIndex = 2;
