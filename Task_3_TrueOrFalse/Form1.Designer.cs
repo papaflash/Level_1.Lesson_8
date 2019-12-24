@@ -34,12 +34,15 @@
             this.miOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.miSave = new System.Windows.Forms.ToolStripMenuItem();
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tboxQuestion = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSaveQuest = new System.Windows.Forms.Button();
             this.cboxTrue = new System.Windows.Forms.CheckBox();
             this.nudNumber = new System.Windows.Forms.NumericUpDown();
+            this.aboutProgrammMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.authorMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumber)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +50,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem});
+            this.ToolStripMenuItem,
+            this.aboutProgrammMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(588, 24);
@@ -60,6 +64,7 @@
             this.miNew,
             this.miOpen,
             this.miSave,
+            this.miSaveAs,
             this.miExit});
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
             this.ToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -77,12 +82,14 @@
             this.miOpen.Name = "miOpen";
             this.miOpen.Size = new System.Drawing.Size(180, 22);
             this.miOpen.Text = "Open";
+            this.miOpen.Click += new System.EventHandler(this.miOpen_Click);
             // 
             // miSave
             // 
             this.miSave.Name = "miSave";
             this.miSave.Size = new System.Drawing.Size(180, 22);
             this.miSave.Text = "Save";
+            this.miSave.Click += new System.EventHandler(this.miSave_Click);
             // 
             // miExit
             // 
@@ -91,13 +98,15 @@
             this.miExit.Text = "Exit";
             this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
-            // textBox1
+            // tboxQuestion
             // 
-            this.textBox1.Location = new System.Drawing.Point(0, 27);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(588, 199);
-            this.textBox1.TabIndex = 1;
+            this.tboxQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tboxQuestion.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.tboxQuestion.Location = new System.Drawing.Point(0, 27);
+            this.tboxQuestion.Multiline = true;
+            this.tboxQuestion.Name = "tboxQuestion";
+            this.tboxQuestion.Size = new System.Drawing.Size(588, 199);
+            this.tboxQuestion.TabIndex = 1;
             // 
             // btnAdd
             // 
@@ -107,6 +116,7 @@
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -116,6 +126,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Удалить";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSaveQuest
             // 
@@ -125,6 +136,7 @@
             this.btnSaveQuest.TabIndex = 2;
             this.btnSaveQuest.Text = "Сохранить";
             this.btnSaveQuest.UseVisualStyleBackColor = true;
+            this.btnSaveQuest.Click += new System.EventHandler(this.btnSaveQuest_Click);
             // 
             // cboxTrue
             // 
@@ -142,6 +154,29 @@
             this.nudNumber.Name = "nudNumber";
             this.nudNumber.Size = new System.Drawing.Size(85, 20);
             this.nudNumber.TabIndex = 4;
+            this.nudNumber.ValueChanged += new System.EventHandler(this.nudNumber_ValueChanged);
+            // 
+            // aboutProgrammMenu
+            // 
+            this.aboutProgrammMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.authorMenu});
+            this.aboutProgrammMenu.Name = "aboutProgrammMenu";
+            this.aboutProgrammMenu.Size = new System.Drawing.Size(94, 20);
+            this.aboutProgrammMenu.Text = "О программе";
+            // 
+            // authorMenu
+            // 
+            this.authorMenu.Name = "authorMenu";
+            this.authorMenu.Size = new System.Drawing.Size(180, 22);
+            this.authorMenu.Text = "Автор";
+            this.authorMenu.Click += new System.EventHandler(this.authorMenu_Click);
+            // 
+            // miSaveAs
+            // 
+            this.miSaveAs.Name = "miSaveAs";
+            this.miSaveAs.Size = new System.Drawing.Size(180, 22);
+            this.miSaveAs.Text = "Save As";
+            this.miSaveAs.Click += new System.EventHandler(this.miSaveAs_Click);
             // 
             // Form1
             // 
@@ -153,7 +188,7 @@
             this.Controls.Add(this.btnSaveQuest);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tboxQuestion);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -174,12 +209,15 @@
         private System.Windows.Forms.ToolStripMenuItem miOpen;
         private System.Windows.Forms.ToolStripMenuItem miSave;
         private System.Windows.Forms.ToolStripMenuItem miExit;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tboxQuestion;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSaveQuest;
         private System.Windows.Forms.CheckBox cboxTrue;
         private System.Windows.Forms.NumericUpDown nudNumber;
+        private System.Windows.Forms.ToolStripMenuItem aboutProgrammMenu;
+        private System.Windows.Forms.ToolStripMenuItem authorMenu;
+        private System.Windows.Forms.ToolStripMenuItem miSaveAs;
     }
 }
 

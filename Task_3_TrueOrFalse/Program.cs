@@ -11,11 +11,19 @@ namespace Task_3_TrueOrFalse
     [Serializable]
     public class Question
     {
-        private string _text;       // Текст вопроса
-        public string Text { get; set; }
-        private bool _trueFalse;// Правда или нет
-        public bool TrueFalse { get; set; }
-                                       
+        private string _text;
+        public string Text { // Текст вопроса
+            get { return _text; }
+            set { _text = value; } 
+        }  
+        
+        private bool _trueFalse;
+        public bool TrueFalse
+        {
+            get { return _trueFalse; }
+            set { _trueFalse = value; } // Правда или нет
+        }
+
         public Question()       // Для сериализации должен быть пустой конструктор.
         {
         }
@@ -28,15 +36,16 @@ namespace Task_3_TrueOrFalse
     // Класс для хранения списка вопросов. А также для сериализации в XML и десериализации из XML
     class TrueFalse
     {
-        string fileName;
         List<Question> list;
+        private string _fileName;
         public string FileName
         {
-            set { fileName = value; }
+            set { _fileName = value; }
+
         }
         public TrueFalse(string fileName)
         {
-            this.fileName = fileName;
+            FileName = fileName;
             list = new List<Question>();
         }
         public void Add(string text, bool trueFalse)
@@ -52,17 +61,30 @@ namespace Task_3_TrueOrFalse
         {
             get { return list[index]; }
         }
-        public void Save()
+        public void Save(String fileName = "")
         {
+            if (String.IsNullOrEmpty(fileName))
+                fileName = _fileName;
+
             XmlSerializer xmlFormat = new XmlSerializer(typeof(List<Question>));
             Stream fStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
             xmlFormat.Serialize(fStream, list);
             fStream.Close();
         }
+        public void SaveAs()
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            fileDialog.DefaultExt = ".xml";
+            fileDialog.Filter = "Сохранить как xml файл (*.xml)|*.xml";
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Save(fileDialog.FileName);
+            }
+        }
         public void Load()
         {
             XmlSerializer xmlFormat = new XmlSerializer(typeof(List<Question>));
-            Stream fStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            Stream fStream = new FileStream(_fileName, FileMode.Open, FileAccess.Read);
             list = (List<Question>)xmlFormat.Deserialize(fStream);
             fStream.Close();
         }
