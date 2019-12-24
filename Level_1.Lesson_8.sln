@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_2_TextBoxVsNumericValu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_3_TrueOrFalse", "Task_3_TrueOrFalse\Task_3_TrueOrFalse.csproj", "{B2ED2E2B-2EED-4C3B-B387-EA82F87FAC24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_4_Birthdays", "Task_4_Birthdays\Task_4_Birthdays.csproj", "{7B15FA38-5ABE-46F2-95C1-C8439953BE60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B2ED2E2B-2EED-4C3B-B387-EA82F87FAC24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2ED2E2B-2EED-4C3B-B387-EA82F87FAC24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2ED2E2B-2EED-4C3B-B387-EA82F87FAC24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B15FA38-5ABE-46F2-95C1-C8439953BE60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B15FA38-5ABE-46F2-95C1-C8439953BE60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B15FA38-5ABE-46F2-95C1-C8439953BE60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B15FA38-5ABE-46F2-95C1-C8439953BE60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
